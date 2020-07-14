@@ -1,0 +1,29 @@
+[package]
+name = "listhid"
+version = "0.1.0"
+authors = ["Liang-Heng Chen <xeonchen@gmail.com>"]
+edition = "2018"
+
+[lib]
+name = "listhid"
+path = "src/lib.rs"
+
+[[bin]]
+name = "listhid"
+path = "src/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = [
+  "errhandlingapi",
+  "handleapi",
+  "hidclass",
+  "hidsdi",
+  "setupapi",
+  "usbiodef",
+  "winbase",
+  "winerror",
+  "winuser",
+] }
